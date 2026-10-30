@@ -37,6 +37,7 @@ Aplikasi web responsif berbahasa Indonesia untuk pemilik usaha live streaming. F
 - Untuk produksi, tambahkan backup terjadwal, kebijakan privasi, validasi server-side untuk aturan bisnis penting, log audit, dan pengujian akses lintas akun.
 
 ## Keterbatasan versi awal
+Website RED Project
 - Aplikasi ini adalah MVP siap dikembangkan, bukan sistem akuntansi bersertifikat.
 - Data klien pada proyek disimpan sebagai teks nama klien; relasi foreign-key ke tabel klien dan histori kontrak dapat ditambahkan di iterasi berikutnya.
 - Belum ada invoice PDF, tanda tangan kontrak, notifikasi WhatsApp/email, sinkronisasi Google Calendar, pembagian peran kru, unggah bukti transfer, atau multi-currency.
