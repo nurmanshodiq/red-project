@@ -2,7 +2,10 @@
 <html lang="id">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0b1730"><title>RED Project — Manajemen Live Streaming</title>
+<meta name="theme-color" content="#0b1730">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<title>RED Project — Manajemen Live Streaming</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 :root{--navy:#0b1730;--navy2:#122447;--blue:#2878ff;--cyan:#23c4e8;--ink:#17243b;--muted:#738098;--line:#e6ebf2;--bg:#f4f7fb;--white:#fff;--green:#139b68;--red:#d9475c;--amber:#c78012;--radius:16px}
@@ -59,4 +62,5 @@ async function delRow(type,id){if(!confirm('Hapus data ini secara permanen?'))re
 async function logout(){if(supa)await supa.auth.signOut();state.user=null;showAuth()}
 function exportCSV(){let rows=[['Tanggal','Jenis','Keterangan','Kategori','Proyek','Nominal'],...state.transactions.map(t=>[t.transaction_date,t.kind,t.description,t.category,t.project_name,t.amount])];let csv=rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'}));a.download='red-project-transaksi.csv';a.click();URL.revokeObjectURL(a.href)}
 initClient();if(cfgReady()){supa.auth.onAuthStateChange(()=>{});boot()}else showAuth();
+if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(err => console.warn("PWA service worker:", err))); }
 </script></body></html>
